@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>dk.cn-consult</groupId>
+		<artifactId>cn-consult-parent-pom</artifactId>
+		<version>0.1.0</version>
+	</parent>
+
+	<artifactId>money</artifactId>
+	<version>0.1.1-SNAPSHOT</version>
+
+	<name>Money</name>
+	<packaging>jar</packaging>
+	<description>Money</description>
+	<inceptionYear>2007</inceptionYear>
+
+	<url>http://mvn.cn-consult.dk/release-site/${project.artifactId}</url>
+
+	<scm>
+		<connection>scm:svn:http://svn.cn-consult.dk:7000/svn/money/trunk</connection>
+		<developerConnection>scm:svn:http://svn.cn-consult.dk:7000/svn/money/trunk</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>repository.local.release-site</id>
+			<name>CN Consult Website</name>
+			<url>
+				scpexe://mvn.cn-consult.dk/var/lib/mvn/release-site/${project.artifactId}/${project.version}
+			</url>
+		</site>
+	</distributionManagement>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>
