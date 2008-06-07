@@ -1,6 +1,6 @@
 /**
  * This file is part of the Money library.
- * Copyright (C) 2007, Claus Nielsen, clanie@clanie.dk
+ * Copyright (C) 2007, Claus Nielsen, cn@cn-consult.dk
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
