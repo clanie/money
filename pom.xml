@@ -2,13 +2,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>dk.cn-consult</groupId>
-		<artifactId>cn-consult-parent-pom</artifactId>
-		<version>0.1.0</version>
+		<groupId>dk.clanie</groupId>
+		<artifactId>clanie-parent-pom</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>money</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<name>Money</name>
 	<packaging>jar</packaging>
