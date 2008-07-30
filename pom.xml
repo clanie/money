@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>dk.clanie</groupId>
 		<artifactId>clanie-parent-pom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>money</artifactId>
@@ -18,8 +18,8 @@
 	<url>http://mvn.cn-consult.dk/release-site/${project.artifactId}</url>
 
 	<scm>
-		<connection>scm:svn:http://svn.cn-consult.dk:7000/svn/money/trunk</connection>
-		<developerConnection>scm:svn:http://svn.cn-consult.dk:7000/svn/money/trunk</developerConnection>
+		<connection>scm:git:ssh://git/var/cache/git/libs/money</connection>
+		<url>http://git.cn-consult.dk/?p=libs/money/.git</url>
 	</scm>
 
 	<distributionManagement>
