@@ -8,7 +8,7 @@
 	</parent>
 
 	<artifactId>money</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<name>Money</name>
 	<packaging>jar</packaging>
