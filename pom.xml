@@ -18,8 +18,8 @@
 	<url>http://mvn.cn-consult.dk/release-site/${project.artifactId}</url>
 
 	<scm>
-		<connection>scm:git:ssh://git/var/cache/git/libs/money</connection>
-		<url>http://git.cn-consult.dk/?p=libs/money/.git</url>
+		<connection>scm:git:ssh://git/var/cache/git/libs/money.git</connection>
+		<url>http://git.cn-consult.dk/?p=libs/money.git</url>
 	</scm>
 
 	<distributionManagement>
