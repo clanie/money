@@ -15,11 +15,11 @@
 	<description>Money</description>
 	<inceptionYear>2007</inceptionYear>
 
-	<url>http://mvn.cn-consult.dk/release-site/${project.artifactId}</url>
+	<url>https://github.com/clanie/money</url>
 
 	<scm>
-		<connection>scm:git:ssh://git/var/cache/git/libs/money.git</connection>
-		<url>http://git.cn-consult.dk/?p=libs/money.git</url>
+		<connection>scm:git:ssh:git@github.com:clanie/money.git</connection>
+		<url>https://github.com/clanie/money</url>
 	</scm>
 
 	<distributionManagement>
