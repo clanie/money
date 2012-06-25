@@ -1,6 +1,6 @@
 /**
  * This file is part of the Money library.
- * Copyright (C) 2007, Claus Nielsen, cn@cn-consult.dk
+ * Copyright (C) 2007, 2012, Claus Nielsen, cn@cn-consult.dk
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +18,9 @@
  */
 package dk.clanie.money;
 
+import static org.hibernate.type.StandardBasicTypes.BIG_DECIMAL;
+import static org.hibernate.type.StandardBasicTypes.CURRENCY;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
@@ -25,42 +28,48 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Currency;
 
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
-import org.hibernate.engine.SessionImplementor;
+import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.type.Type;
 import org.hibernate.usertype.CompositeUserType;
 
 public class MoneyCompositeUserType implements CompositeUserType {
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes" })
+	@Override
 	public Class returnedClass() {
 		return Money.class;
 	}
 
+	@Override
 	public boolean isMutable() {
 		return false;
 	}
 
+	@Override
 	public Object deepCopy(Object value) throws HibernateException {
 		return value;
 	}
 
+	@Override
 	public Serializable disassemble(Object value, SessionImplementor session)
 			throws HibernateException {
 		return (Serializable) value;
 	}
 
+	@Override
 	public Object assemble(Serializable cached, SessionImplementor session,
 			Object owner) throws HibernateException {
 		return cached;
 	}
 
+	@Override
 	public Object replace(Object original, Object target,
 			SessionImplementor session, Object owner) throws HibernateException {
 		return original;
 	}
 
+	@Override
 	public boolean equals(Object x, Object y) throws HibernateException {
 		if (x == y)
 			return true;
@@ -69,10 +78,12 @@ public class MoneyCompositeUserType implements CompositeUserType {
 		return x.equals(y);
 	}
 
+	@Override
 	public int hashCode(Object x) throws HibernateException {
 		return x.hashCode();
 	}
 
+	@Override
 	public Object nullSafeGet(ResultSet rs, String[] names,
 			SessionImplementor session, Object owner)
 			throws HibernateException, SQLException {
@@ -84,11 +95,12 @@ public class MoneyCompositeUserType implements CompositeUserType {
 		return new Money(amount, currency);
 	}
 
+	@Override
 	public void nullSafeSet(PreparedStatement st, Object value, int index,
 			SessionImplementor session) throws HibernateException, SQLException {
 		if (value == null) {
-			st.setNull(index, Hibernate.BIG_DECIMAL.sqlType());
-			st.setNull(index + 1, Hibernate.CURRENCY.sqlType());
+			st.setNull(index, BIG_DECIMAL.sqlType());
+			st.setNull(index + 1, CURRENCY.sqlType());
 		} else {
 			Money money = (Money) value;
 			st.setBigDecimal(index, money.getAmount());
@@ -96,14 +108,17 @@ public class MoneyCompositeUserType implements CompositeUserType {
 		}
 	}
 
+	@Override
 	public String[] getPropertyNames() {
 		return new String[] { "amount", "currency" };
 	}
 
+	@Override
 	public Type[] getPropertyTypes() {
-		return new Type[] { Hibernate.BIG_DECIMAL, Hibernate.CURRENCY };
+		return new Type[] { BIG_DECIMAL, CURRENCY };
 	}
 
+	@Override
 	public Object getPropertyValue(Object component, int property)
 			throws HibernateException {
 		Money money = (Money) component;
@@ -113,6 +128,7 @@ public class MoneyCompositeUserType implements CompositeUserType {
 			return money.getCurrencyCode();
 	}
 
+	@Override
 	public void setPropertyValue(Object component, int property, Object value)
 			throws HibernateException {
 		throw new UnsupportedOperationException("Immutable Money");

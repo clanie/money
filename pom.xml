@@ -22,6 +22,7 @@
 		<url>https://github.com/clanie/money</url>
 	</scm>
 
+<!--
 	<distributionManagement>
 		<site>
 			<id>repository.local.release-site</id>
@@ -31,6 +32,7 @@
 			</url>
 		</site>
 	</distributionManagement>
+-->
 
 	<dependencies>
 
